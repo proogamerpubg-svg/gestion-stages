@@ -1,0 +1,5 @@
+PLACEHOLDER - Remplacer par les vrais modèles PDF de l'ENCG.
+Placer dans : storage/app/public/modeles/
+- modele_convention.pdf
+- modele_assurance.pdf
+- modele_lettre_recommandation.pdf

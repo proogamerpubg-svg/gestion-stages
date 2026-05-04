@@ -1,0 +1,333 @@
+/* =====================================================
+   ENCG Gestion Stages — Styles globaux
+   ===================================================== */
+
+:root {
+  --encg-primary:    #003366;
+  --encg-secondary:  #0057a8;
+  --encg-accent:     #e8b400;
+  --encg-light:      #f4f6f9;
+  --encg-border:     #e2e8f0;
+  --encg-text:       #1e293b;
+  --encg-muted:      #64748b;
+  --sidebar-width:   240px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background-color: var(--encg-light);
+  color: var(--encg-text);
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════
+   SIDEBAR WRAPPER — gère desktop + mobile
+══════════════════════════════════════════════════════ */
+.sidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
+  /* Desktop : toujours visible */
+}
+
+/* ── Sidebar interne ── */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--encg-primary);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+}
+
+.sidebar-brand {
+  padding: 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+
+.sidebar-brand h5 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-brand small {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.72rem;
+}
+
+.sidebar-nav { flex: 1; padding: 12px 0; overflow-y: auto; }
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  border-left-color: var(--encg-accent);
+}
+
+.sidebar-link i { font-size: 1rem; width: 18px; text-align: center; }
+
+.sidebar-footer {
+  padding: 14px 18px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ══════════════════════════════════════════════════════
+   MAIN CONTENT
+══════════════════════════════════════════════════════ */
+.main-content {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+}
+
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid var(--encg-border);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.page-content { padding: 28px; }
+
+/* Burger — caché sur desktop */
+.burger-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--encg-border);
+  border-radius: 8px;
+  padding: 4px 10px;
+  cursor: pointer;
+  color: var(--encg-primary);
+  line-height: 1;
+}
+
+/* ── Cards ── */
+.card {
+  border: 1px solid var(--encg-border);
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+
+.card-header-custom {
+  background: var(--encg-primary);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Status badges ── */
+.badge-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-declare           { background: #dbeafe; color: #1d4ed8; }
+.status-en_attente_admin  { background: #fef3c7; color: #92400e; }
+.status-rejete            { background: #fee2e2; color: #991b1b; }
+.status-en_cours          { background: #d1fae5; color: #065f46; }
+.status-journal_mi        { background: #ede9fe; color: #5b21b6; }
+.status-journal_fin       { background: #ede9fe; color: #4c1d95; }
+.status-cloture_deposee   { background: #fef3c7; color: #92400e; }
+.status-valide_encadrant  { background: #d1fae5; color: #065f46; }
+.status-cloture           { background: #bbf7d0; color: #14532d; }
+.status-archive           { background: #f1f5f9; color: #475569; }
+
+/* ── Workflow steps ── */
+.workflow-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding: 16px 0;
+}
+
+.workflow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.step-circle {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 700;
+  border: 2px solid #cbd5e1;
+  background: #f8fafc;
+  color: #94a3b8;
+  transition: all 0.2s;
+}
+
+.step-circle.done    { background: #003366; border-color: #003366; color: #fff; }
+.step-circle.current { background: #0057a8; border-color: #0057a8; color: #fff; box-shadow: 0 0 0 3px rgba(0,87,168,0.2); }
+
+.step-label {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 5px;
+  max-width: 70px;
+  line-height: 1.2;
+}
+
+.step-label.done    { color: #003366; font-weight: 600; }
+.step-label.current { color: #0057a8; font-weight: 600; }
+
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background: #cbd5e1;
+  min-width: 20px;
+  margin-bottom: 22px;
+}
+
+.step-connector.done { background: #003366; }
+
+/* ── Boutons ENCG ── */
+.btn-encg {
+  background: var(--encg-primary);
+  color: #fff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-encg:hover { background: var(--encg-secondary); color: #fff; }
+
+/* ── Login page ── */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--encg-primary) 0%, var(--encg-secondary) 100%);
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.login-logo { text-align: center; margin-bottom: 28px; }
+.login-logo h4 { color: var(--encg-primary); font-weight: 700; margin: 8px 0 4px; }
+.login-logo p  { color: var(--encg-muted); font-size: 0.85rem; margin: 0; }
+
+/* ── Tables ── */
+.table-encg th {
+  background: var(--encg-primary);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.85rem;
+  border: none;
+}
+
+.table-encg td { vertical-align: middle; font-size: 0.88rem; }
+
+/* ── Upload zone ── */
+.upload-zone {
+  border: 2px dashed var(--encg-border);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  background: #fafbfc;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-zone:hover, .upload-zone.dragging {
+  border-color: var(--encg-secondary);
+  background: #eff6ff;
+}
+
+.upload-zone.success {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+/* ── Alert info box ── */
+.info-box {
+  background: #eff6ff;
+  border-left: 4px solid var(--encg-secondary);
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  color: var(--encg-primary);
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE MOBILE
+══════════════════════════════════════════════════════ */
+@media (max-width: 991px) {
+
+  /* Sidebar cachée par défaut — glisse depuis la gauche */
+  .sidebar-wrapper {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  /* Sidebar visible quand open */
+  .sidebar-wrapper.sidebar-open {
+    transform: translateX(0);
+  }
+
+  /* Contenu prend tout l'écran */
+  .main-content {
+    margin-left: 0;
+  }
+
+  /* Burger visible */
+  .burger-btn {
+    display: block;
+  }
+
+  .topbar {
+    padding: 12px 16px;
+  }
+
+  .page-content {
+    padding: 16px 12px;
+  }
+}
