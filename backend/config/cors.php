@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     /*
     |--------------------------------------------------------------------------
     | Cross-Origin Resource Sharing (CORS)
@@ -15,6 +16,9 @@ return [
     'allowed_origins' => [
         'http://localhost:3000',
         'http://127.0.0.1:3000',
+        'https://gestion-stages-seven.vercel.app',
+        'https://encgo-stages.vercel.app',
+        'https://gestion-stages-seven.vercel.app',
     ],
 
     'allowed_origins_patterns' => [],
