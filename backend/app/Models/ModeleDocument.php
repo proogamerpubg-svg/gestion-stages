@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ModeleDocument extends Model
 {
-    protected $table      = 'ModeleDocument';
+    protected $table      = 'modeledocument';
     protected $primaryKey = 'idModele';
 
     const CREATED_AT = null;
